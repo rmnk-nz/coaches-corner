@@ -1,0 +1,42 @@
+body {
+    background-color:#33393f;
+    color: whitesmoke;
+}
+nav {
+    background-image: url(../images/header.png);
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+.tabDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 50%;
+}
+.navTabs {
+    margin: 40px;
+    font-family: 'Audiowide', cursive;
+    font-size: 2rem;
+    font-weight: bolder;
+    text-shadow: 2px 2px #33393f;
+}
+.navHme {
+    font-family: 'Gruppo', cursive;
+    margin-top: 110px;
+    margin-left: 30px;
+    font-size: 1.5rem;
+}
+.navTabs:hover {
+    text-shadow: none;
+    opacity: .8;
+}
+.navHme a:hover {
+    color: turquoise;
+    opacity: .8;
+}
