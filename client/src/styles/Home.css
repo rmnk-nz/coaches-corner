@@ -1,4 +1,25 @@
 .homeImage {
     width: 100%;
-    height: 50%;
+}
+.introDiv {
+    position: absolute;
+    margin: 40px;
+    width: 50%;
+    font-family: 'Gruppo', cursive;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    color:turquoise;
+}
+.introDiv h3 {
+    color: white;
+}
+.equip {
+    margin:30px;
+    font-family: 'Gruppo', cursive;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    color:turquoise;
+}
+.equip h3 {
+    color: white;
 }
