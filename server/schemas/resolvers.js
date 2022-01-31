@@ -18,6 +18,11 @@ const resolvers = {
         savedProgram: async (parent, { title }) => {
             return Program.findOne({ title: title });
         },
+        
+        savedPrograms:async (parent, { title }) => {
+            const params = title ? { title } : {};
+            return Program.find(params);
+        }, 
     },
 
     Mutation: {
@@ -27,7 +32,6 @@ const resolvers = {
             if (!admin) {
               throw new AuthenticationError('No user found with this email address');
             }
-            
             const correctPw = await admin.isCorrectPassword(password);
 
             if (!correctPw) {
@@ -49,7 +53,6 @@ const resolvers = {
             if (!user) {
               throw new AuthenticationError('No user found with this email address');
             }
-      
             const correctPw = await user.isCorrectPassword(password);
       
             if (!correctPw) {
