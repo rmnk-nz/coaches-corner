@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const { Schema, model } = require('mongoose');
 
-const programSchema = require('./Program');
+const Program = require('./Program');
 const bcrypt = require('bcrypt');
 
 const adminSchema = new Schema (
@@ -15,7 +15,7 @@ const adminSchema = new Schema (
             required: true,
             minlength: 5,
         },
-        program: [programSchema]
+        savedPrograms: [Program]
     },
     {
         toJSON: {
@@ -37,6 +37,6 @@ adminSchema.methods.isCorrectPassword = async function (password) {
     return bcrypt.compare(password, this.password);
 };
 
-const Admin = mongoose.model('Admin', adminSchema);
+const Admin = model('Admin', adminSchema);
 
 module.exports = Admin;
