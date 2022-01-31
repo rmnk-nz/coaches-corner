@@ -1,42 +1,5 @@
-.welcome {
-    font-family: 'Gruppo', cursive;
-    font-size: 2rem;
-    margin: 40px;
-}
-.admin form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.adminHead {
     margin: 50px;
-}
-.admin label {
-    padding: 10px;
     font-family: 'Gruppo', cursive;
     font-size: 1.5rem;
-}
-.admin input {
-    padding: 5px;
-    margin: 5px;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-.admin textarea {
-    width: 80%;
-    height: 200px;
-    padding: 20px;
-    border-radius: 20px;
-    font-size: 1rem;
-}
-.admin button {
-    margin: 10px;
-    padding: 5px 15px 5px 15px;
-    font-size: 1.2rem;
-    font-family: 'Audiowide', cursive;
-    border-radius: 5px;
-}
-.admin button:hover {
-    background-color:#33393f;
-    color: turquoise;
-    cursor: pointer;
 }

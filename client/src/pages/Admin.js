@@ -1,35 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
+// import { Link } from 'react-router-dom';
 import '../styles/Admin.css';
+import { useQuery } from '@apollo/client';
+import { QUERY_PROGRAMS } from '../utils/queries';
+import ProgramForm from '../components/ProgramForm';
 
 function Admin() {
-  const [title, setTitle] = useState('');
-  const [body, setBody] = useState('');
+  const { loading, data } = useQuery(QUERY_PROGRAMS);
+  const programData = data?.savedPrograms || [];
 
-  const handleSubmit = (e) => {
-      e.preventDefault();
-      const programData = { title, body };
-      console.log(programData);
-  };
-
-  return <div className='admin'>
-        <h3 className='welcome'>Welcome Back Coach!!</h3>
-      <form onSubmit={handleSubmit}>
-        <label>Add Your Programming</label>
-        <input type='text' 
-          required 
-          value={title} 
-          onChange={(e) => setTitle(e.target.value)} 
-        />
-        <textarea required
-        value={body}
-        onChange={(e) => setBody(e.target.value)}
-        />
-        <div>
-          <button>SAVE</button>
-        </div>
-      </form>
-      <h3 className='welcome'>Programming History:</h3>
-  </div>;
+  if (loading) {
+    return <div>....loading</div>
+  }
+  return <>
+      <h3 className='adminHead'>Welcome Back Coach!!</h3>
+      <ProgramForm />
+      <h3 className='adminHead'>Program History:</h3>
+      <h4>{programData.title}</h4>
+      <p>{programData.body}</p>
+  </>;
 };
 
 export default Admin
