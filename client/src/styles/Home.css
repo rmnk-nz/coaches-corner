@@ -7,7 +7,7 @@
     margin: 40px;
     width: 50%;
     font-family: 'Gruppo', cursive;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     font-weight: bolder;
     color: white;
 }
@@ -16,11 +16,10 @@
     color:turquoise;   
 }
 .equip {
-    background-image: url(../images/header.png);
-    background-position: center;
+    background-image: url(../images/header1.png);
     padding: 30px;
     font-family: 'Gruppo', cursive;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     font-weight: bolder;
     color: whitesmoke;
     height: 100%;
