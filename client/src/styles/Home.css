@@ -1,5 +1,6 @@
 .homeImage {
     width: 100%;
+    margin: 0;
 }
 .introDiv {
     position: absolute;
@@ -8,18 +9,28 @@
     font-family: 'Gruppo', cursive;
     font-size: 1.5rem;
     font-weight: bolder;
-    color:turquoise;
-}
-.introDiv h3 {
     color: white;
 }
+
+.introDiv h3 {
+    color:turquoise;   
+}
 .equip {
-    margin:30px;
+    background-image: url(../images/header.png);
+    background-position: center;
+    padding: 30px;
     font-family: 'Gruppo', cursive;
     font-size: 1.5rem;
     font-weight: bolder;
-    color:turquoise;
+    color: whitesmoke;
+    height: 100%;
+    text-shadow: 2px 2px black;
 }
 .equip h3 {
-    color: white;
+    margin-top: 0;
+    color:turquoise;
+    
+}
+.equip p {
+    margin-bottom: 0;
 }

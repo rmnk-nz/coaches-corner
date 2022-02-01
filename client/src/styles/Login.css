@@ -32,3 +32,7 @@
     color: turquoise;
     cursor: pointer;
 }
+.loginDiv a:hover {
+    color: turquoise;
+    text-decoration: underline;
+}

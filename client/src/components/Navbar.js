@@ -8,9 +8,7 @@ const Navbar = () => {
   return (
       <nav>
         <div className='navHme'>
-          <Link to="/">
           COACHES CORNER
-          </Link>
         </div>
         <div className='tabDiv'>
           <h3 className='navTabs'>

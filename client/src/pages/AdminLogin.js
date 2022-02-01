@@ -48,7 +48,7 @@ const AdminLogin = (props) => {
         <div className='loginDiv'>
             <h3>Admin Login</h3>
             {data ? (
-                <Link to='/admin'>Logged in, continue to Admin</Link>
+                <Link to='/admin'><h3>Logged in, continue as Admin</h3></Link>
             ) : (
                 <form onSubmit={handleFormSubmit}>
                 <input
@@ -73,9 +73,9 @@ const AdminLogin = (props) => {
               </form>
             )}
             {error && (
-              <div>
+              <h3>
                 {error.message}
-              </div>
+              </h3>
             )}
         </div>
         <img className='homeImage' src={homeImage} alt='homepageImage'/>
