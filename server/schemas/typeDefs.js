@@ -8,13 +8,13 @@ type Program {
 }
 
 type Admin {
-    _id: ID!
+    _id: ID
     email: String!
     savedPrograms: [Program]
 }
 
 type User {
-    _id: ID!
+    _id: ID
     email: String!
     savedPrograms: [Program]
 }
@@ -24,15 +24,14 @@ type Auth {
     admin: Admin
 }
 type Query {
-    me: Admin
-    user: User
-    savedPrograms(title: String!): [Program]
+    me: [Admin]
+    user: [User]
+    savedPrograms: [Program]
     savedProgram(title: String!): Program
 }
 
 type Mutation {
     loginAdmin(email: String!, password: String!): Auth
-    addUser(email: String!, password: String!): Auth
     loginUser(email: String!, password: String!): Auth
     addProgram(title: String!, body: String!): Program
     removeProgram(title: String!): Program

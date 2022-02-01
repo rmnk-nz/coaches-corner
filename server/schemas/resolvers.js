@@ -4,30 +4,26 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
-        me: async (parent, args, context) => {
-            if (context.admin) {
-              return Admin.findOne({ email: context.admin.email }).populate('savedPrograms');
-            }
-            throw new AuthenticationError('You need to be logged in!');
+        me: async () => {
+            return await Admin.find({}).populate('savedPrograms');
         },
 
-        user: async (parent, { email }) => {
-            return User.findOne({ email }).populate('savedPrograms');
+        user: async () => {
+            return await User.find({}).populate('savedPrograms');
         },
 
-        savedProgram: async (parent, { title }) => {
-            return Program.findOne({ title: title });
+        savedProgram: async (root, { title }) => {
+            return await Program.findOne({ title: title });
         },
         
-        savedPrograms:async (parent, { title }) => {
-            const params = title ? { title } : {};
-            return Program.find(params);
+        savedPrograms: async () => {
+          return await Program.find({});
         }, 
     },
 
     Mutation: {
-        loginAdmin: async (parent, { email, password }) => {
-            const admin = await Admin.findOne({ email });
+        loginAdmin: async (root, { email, password }) => {
+            const admin = await Admin.findOne({ email: email });
       
             if (!admin) {
               throw new AuthenticationError('No user found with this email address');
@@ -41,14 +37,8 @@ const resolvers = {
         return { token, admin };
         },
 
-        addUser: async (parent, { email, password }) => {
-            const user = await User.create({ email, password });
-            const token = signToken(user);
-            return { token, user };
-        },
-
-        loginUser: async (parent, { email, password }) => {
-            const user = await User.findOne({ email });
+        loginUser: async (root, { email, password }) => {
+            const user = await User.findOne({ email: email });
       
             if (!user) {
               throw new AuthenticationError('No user found with this email address');
@@ -63,33 +53,12 @@ const resolvers = {
             return { token, user };
         },  
 
-        addProgram: async (parent, { programData }, context) => {
-            if (context.admin) {
-              const programData = await Program.create({ title, body });
-      
-              await Admin.findOneAndUpdate(
-                { email: context.admin.email },
-                { $addToSet: { savedProgram: programData.title } },
-                { new: true }
-              );
-      
-              return programData ;
-            }
+        addProgram: async (root, { title, body }) => {
+          return await Program.create({ title: title, body: body });
         },
 
-        removeProgram: async (parent, args, context) => {
-            if (context.admin) {
-              const programData = await Program.findOneAndDelete({
-                title: args.title
-              });
-      
-              await Admin.findOneAndUpdate(
-                { email: context.admin.email },
-                { $pull: { program: programData.title } }
-              );
-      
-              return programData;
-            }
+        removeProgram: async (root, { title }) => {
+          return await Program.findOneAndDelete({ title: title });
         },
     },
 };
