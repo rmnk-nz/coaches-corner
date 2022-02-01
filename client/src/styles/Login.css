@@ -1,0 +1,34 @@
+.loginDiv {
+    position: absolute;
+}
+.loginDiv h3 {
+    margin: 50px;
+    font-family: 'Gruppo', cursive;
+    font-size: 1.5rem;
+}
+.loginDiv form {
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    margin: 50px;
+}
+.loginDiv input {
+    padding: 5px 15px 5px 15px;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.loginDiv button {
+    margin: 10px;
+    padding: 5px 15px 5px 15px;
+    font-size: 1.2rem;
+    font-family: 'Gruppo', cursive;
+    border-radius: 5px;
+    font-weight: bolder;
+}
+.loginDiv button:hover {
+    background-color:#33393f;
+    color: turquoise;
+    cursor: pointer;
+}

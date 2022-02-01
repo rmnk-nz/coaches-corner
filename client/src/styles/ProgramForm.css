@@ -28,8 +28,9 @@
     margin: 10px;
     padding: 5px 15px 5px 15px;
     font-size: 1.2rem;
-    font-family: 'Audiowide', cursive;
+    font-family: 'Gruppo', cursive;
     border-radius: 5px;
+    font-weight: bolder;
 }
 .programForm button:hover {
     background-color:#33393f;

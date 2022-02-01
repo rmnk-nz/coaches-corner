@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 import '../styles/Admin.css';
 import { useQuery } from '@apollo/client';
 import { QUERY_PROGRAMS } from '../utils/queries';
@@ -15,7 +14,7 @@ function Admin() {
   return <>
       <h3 className='adminHead'>Welcome Back Coach!!</h3>
       <ProgramForm />
-      <h3 className='adminHead'>Program History:</h3>
+      <h3 className='adminHead'>Saved Programming:</h3>
       <h4>{programData.title}</h4>
       <p>{programData.body}</p>
   </>;

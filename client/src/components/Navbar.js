@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import '../styles/Navbar.css';
 
 
+
 const Navbar = () => {
-  
   return (
       <nav>
         <div className='navHme'>
@@ -14,12 +14,12 @@ const Navbar = () => {
         </div>
         <div className='tabDiv'>
           <h3 className='navTabs'>
-            <Link to="/admin">
+            <Link to="/adminlogin">
             ADMIN
             </Link>
           </h3>
           <h3 className='navTabs'>
-            <Link to="/user">
+            <Link to="/userlogin">
             USER
             </Link>
           </h3>
