@@ -15,7 +15,12 @@ const userSchema = new Schema (
             required: true,
             minlength: 5,
         },
-        savedPrograms: [Program]
+        savedPrograms: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Program',
+            }
+        ],
     },
     {
         toJSON: {
