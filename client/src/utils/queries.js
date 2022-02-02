@@ -33,6 +33,7 @@ export const QUERY_PROGRAMS = gql`
     savedPrograms {
       _id
       title
+      body
     }
   }
 `;

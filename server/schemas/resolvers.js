@@ -4,20 +4,20 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
-        me: async () => {
-            return await Admin.find({}).populate('savedPrograms');
+        me: () => {
+            return Admin.find({}).populate('savedPrograms');
         },
 
-        user: async () => {
-            return await User.find({}).populate('savedPrograms');
+        user: () => {
+            return User.find({}).populate('savedPrograms');
         },
 
-        savedProgram: async (root, { title }) => {
-            return await Program.findOne({ title: title });
+        savedProgram: (root, { title }) => {
+            return Program.findOne({ title: title });
         },
         
-        savedPrograms: async () => {
-          return await Program.find({});
+        savedPrograms: () => {
+          return Program.find({});
         }, 
     },
 
@@ -53,12 +53,12 @@ const resolvers = {
             return { token, user };
         },  
 
-        addProgram: async (root, { title, body }) => {
-          return await Program.create({ title: title, body: body });
+        addProgram: (root, { title, body }) => {
+          return Program.create({ title: title, body: body });
         },
 
-        removeProgram: async (root, { title }) => {
-          return await Program.findOneAndDelete({ title: title });
+        removeProgram: (root, { title }) => {
+          return Program.findOneAndDelete({ title: title });
         },
     },
 };
