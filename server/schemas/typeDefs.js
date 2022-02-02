@@ -22,6 +22,7 @@ type User {
 type Auth {
     token: ID!
     admin: Admin
+    user: User
 }
 type Query {
     me: [Admin]
