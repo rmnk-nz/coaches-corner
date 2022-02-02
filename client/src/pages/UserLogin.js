@@ -3,8 +3,7 @@ import '../styles/Login.css';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
-import homeImage from '../images/home.jpg'
-
+import homeImage from '../images/home.jpg';
 
 import Auth from '../utils/auth';
 
@@ -45,39 +44,41 @@ const UserLogin = (props) => {
 
     return (
     <>
-        <div className='loginDiv'>
-            <h3>User Login</h3>
-            {data ? (
+      <div className='loginDiv'>
+        <h3>User Login</h3>
+        {data ? (
                 <Link to='/user'><h3>Logged in, continue as User</h3></Link>
-            ) : (
+                )
+              : (
                 <form onSubmit={handleFormSubmit}>
-                <input
-                  placeholder="Your email"
-                  name="email"
-                  type="email"
-                  value={formState.email}
-                  onChange={handleChange}
-                />
-                <input
-                  placeholder="******"
-                  name="password"
-                  type="password"
-                  value={formState.password}
-                  onChange={handleChange}
-                />
-                <button
-                  type="submit"
-                >
-                  Submit
-                </button>
-              </form>
-            )}
-            {error && (
-              <h3>
-                {error.message}
-              </h3>
-            )}
-        </div>
+                  <input
+                    placeholder="Your email"
+                    name="email"
+                    type="email"
+                    value={formState.email}
+                    onChange={handleChange}
+                  />
+                  <input
+                    placeholder="******"
+                    name="password"
+                    type="password"
+                    value={formState.password}
+                    onChange={handleChange}
+                  />
+                  <button
+                    type="submit"
+                  >
+                    Submit
+                  </button>
+                </form>
+              )
+          }
+          {error && (
+            <h3>
+              {error.message}
+            </h3>
+          )}
+      </div>
         <img className='homeImage' src={homeImage} alt='homepageImage'/>
     </>
     );

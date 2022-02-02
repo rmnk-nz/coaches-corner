@@ -45,39 +45,40 @@ const AdminLogin = (props) => {
 
     return (
     <>
-        <div className='loginDiv'>
-            <h3>Admin Login</h3>
-            {data ? (
-                <Link to='/admin'><h3>Logged in, continue as Admin</h3></Link>
-            ) : (
+      <div className='loginDiv'>
+        <h3>Admin Login</h3>
+        {data ? (
+                <Link to='/admin'><h3>Logged in, continue as Admin</h3></Link>)
+              : (
                 <form onSubmit={handleFormSubmit}>
-                <input
-                  placeholder="Your email"
-                  name="email"
-                  type="email"
-                  value={formState.email}
-                  onChange={handleChange}
-                />
-                <input
-                  placeholder="******"
-                  name="password"
-                  type="password"
-                  value={formState.password}
-                  onChange={handleChange}
-                />
-                <button
-                  type="submit"
-                >
-                  Submit
-                </button>
-              </form>
-            )}
+                  <input
+                    placeholder="Your email"
+                    name="email"
+                    type="email"
+                    value={formState.email}
+                    onChange={handleChange}
+                  />
+                  <input
+                    placeholder="******"
+                    name="password"
+                    type="password"
+                    value={formState.password}
+                    onChange={handleChange}
+                  />
+                  <button
+                    type="submit"
+                  >
+                    Submit
+                  </button>
+                </form>
+              )
+            }
             {error && (
               <h3>
                 {error.message}
               </h3>
             )}
-        </div>
+      </div>
         <img className='homeImage' src={homeImage} alt='homepageImage'/>
     </>
     );
