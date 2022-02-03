@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/Login.css';
-import { Link } from 'react-router-dom';
+
 import { useMutation } from '@apollo/client';
 import { LOGIN_ADMIN } from '../utils/mutations';
 import adminImage from '../images/admin.jpg'
@@ -10,7 +10,7 @@ import Auth from '../utils/auth';
 
 const AdminLogin = (props) => {
     const [formState, setFormState] = useState({ email: '', password: '' });
-    const [login, { error, data }] = useMutation(LOGIN_ADMIN);
+    const [login, { error }] = useMutation(LOGIN_ADMIN);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -24,32 +24,23 @@ const AdminLogin = (props) => {
      
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-        console.log(formState);
 
         try {
             const { data } = await login({
             variables: { ...formState },
         });
 
-            Auth.login(data.login.token);
+        Auth.login(data.loginAdmin.token);
+        window.location.href= "/admin";
 
         } catch (e) {
             console.error(e);
         }
-
-        setFormState({
-        email: '',
-        password: '',
-        });
     };
-
     return (
     <>
       <div className='loginDiv'>
-        <h3>Admin Login</h3>
-        {data ? (
-                <Link to='/admin'><h3>Logged in, continue as Admin</h3></Link>)
-              : (
+        <h3>Admin Login</h3>    
                 <form onSubmit={handleFormSubmit}>
                   <input
                     placeholder="Your email"
@@ -71,8 +62,7 @@ const AdminLogin = (props) => {
                     Submit
                   </button>
                 </form>
-              )
-            }
+              
             {error && (
               <h3>
                 {error.message}

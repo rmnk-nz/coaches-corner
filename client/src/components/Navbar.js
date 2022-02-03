@@ -12,13 +12,14 @@ const Navbar = () => {
         </div>
         <div className='tabDiv'>
          {
-           Auth.loggedIn ? 
+           !Auth.loggedIn() ? 
            (<>
            <h3 className='navTabs'>
               <Link to="/adminlogin">
               ADMIN
               </Link>
-            </h3><h3 className='navTabs'>
+            </h3>
+            <h3 className='navTabs'>
               <Link to="/userlogin">
                 USER
               </Link>

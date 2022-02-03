@@ -32,7 +32,8 @@ const resolvers = {
 
             if (!correctPw) {
             throw new AuthenticationError('Incorrect credentials');
-        }
+          }
+
         const token = signToken(admin);
         return { token, admin };
         },
@@ -49,8 +50,8 @@ const resolvers = {
               throw new AuthenticationError('Incorrect credentials');
             }
       
-            const token = signToken(user);
-            return { token, user };
+          const token = signToken(user);
+          return { token, user };
         },  
 
         addProgram: (root, { title, body }) => {

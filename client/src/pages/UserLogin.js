@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/Login.css';
-import { Link } from 'react-router-dom';
+
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 import homeImage from '../images/home.jpg';
@@ -9,7 +9,7 @@ import Auth from '../utils/auth';
 
 const UserLogin = (props) => {
     const [formState, setFormState] = useState({ email: '', password: '' });
-    const [login, { error, data }] = useMutation(LOGIN_USER);
+    const [login, { error }] = useMutation(LOGIN_USER);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -30,26 +30,18 @@ const UserLogin = (props) => {
             variables: { ...formState },
         });
 
-            Auth.login(data.login.token);
+            Auth.login(data.loginUser.token);
+            window.location.href= "/user";
 
         } catch (e) {
             console.error(e);
         }
-
-        setFormState({
-        email: '',
-        password: '',
-        });
     };
 
     return (
     <>
       <div className='loginDiv'>
         <h3>User Login</h3>
-        {data ? (
-                <Link to='/user'><h3>Logged in, continue as User</h3></Link>
-                )
-              : (
                 <form onSubmit={handleFormSubmit}>
                   <input
                     placeholder="Your email"
@@ -71,8 +63,7 @@ const UserLogin = (props) => {
                     Submit
                   </button>
                 </form>
-              )
-          }
+
           {error && (
             <h3>
               {error.message}
