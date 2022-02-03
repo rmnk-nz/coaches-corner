@@ -39,8 +39,8 @@ export const QUERY_PROGRAMS = gql`
 `;
 
 export const QUERY_PROGRAM = gql`
-  query getProgram($title: String!) {
-    savedProgram(title: $title) {
+  query getProgram($programId: ID!) {
+    savedProgram(programId: $programId) {
       _id
       title
       body

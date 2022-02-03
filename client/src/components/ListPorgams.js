@@ -1,4 +1,8 @@
 import React from 'react';
+import '../styles/ListPrograms.css';
+
+import { Link } from 'react-router-dom';
+
 
 const ListPrograms = ({ programs }) => {
     if (!programs.length) {
@@ -6,11 +10,14 @@ const ListPrograms = ({ programs }) => {
     }
 
     return (
-        <div>
+        <div className='listProgramsDiv'>
             {programs && programs.map((programs) => (
             <>
-            <h3>{programs.title}</h3>
-            <p>{programs.body}</p>
+            <div className='programCard'>
+                <Link to={`/program/${programs._id}`}>
+                <h3>{programs.title}</h3>
+                </Link>
+            </div>
             </>
             ))}
         </div>

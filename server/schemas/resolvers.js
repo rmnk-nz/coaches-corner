@@ -12,8 +12,8 @@ const resolvers = {
             return User.find({}).populate('savedPrograms');
         },
 
-        savedProgram: (root, { title }) => {
-            return Program.findOne({ title: title });
+        savedProgram: (root, { programId }) => {
+            return Program.findOne({ _id: programId });
         },
         
         savedPrograms: () => {

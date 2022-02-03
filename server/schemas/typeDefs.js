@@ -28,7 +28,7 @@ type Query {
     me: [Admin]
     user: [User]
     savedPrograms: [Program]
-    savedProgram(title: String!): Program
+    savedProgram(programId: ID!): Program
 }
 
 type Mutation {

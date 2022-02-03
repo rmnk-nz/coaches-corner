@@ -8,6 +8,7 @@ import Admin from './pages/Admin';
 import User from './pages/User';
 import AdminLogin from './pages/AdminLogin';
 import UserLogin from './pages/UserLogin';
+import SingleProgram from './pages/SingleProgram';
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -26,6 +27,7 @@ function App() {
           <Route exact path='/adminlogin' component={AdminLogin} />
           <Route exact path='/admin' component={Admin} />
           <Route exact path='/user' component={User} />
+          <Route exact path='/program/:programId' component={SingleProgram} />
         </Switch>
       </>
     </Router>
