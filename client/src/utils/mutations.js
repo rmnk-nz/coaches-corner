@@ -27,6 +27,7 @@ mutation loginUser($email: String!, $password: String!) {
 export const ADD_PROGRAM = gql`
 mutation addProgram($title: String!, $body: String!) {
     addProgram(title: $title, body: $body) {
+        _id
         title
         body
     }
@@ -36,6 +37,7 @@ mutation addProgram($title: String!, $body: String!) {
 export const REMOVE_PROGRAM = gql`
 mutation removeProgram($title: String!, $body: String!) {
     removeProgram(title: $title, body: $body) {
+        _id
         title
         body
     }

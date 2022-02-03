@@ -1,39 +1,56 @@
 import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
-import { useMutation } from '@apollo/client';
 import '../styles/ProgramForm.css';
 
+import { useMutation } from '@apollo/client';
 import { ADD_PROGRAM } from '../utils/mutations';
 import { QUERY_PROGRAMS } from '../utils/queries';
 
 const ProgramForm = () => {
-  const [title, setTitle] = useState('');
-  const [body, setBody] = useState('');
-
-  const [addProgram] = useMutation(ADD_PROGRAM, {
+  const [formState, setFormState] = useState({
+    title: '',
+    body: '', 
+  });
+ 
+  const [addProgram, { error }] = useMutation(ADD_PROGRAM, {
       update(cache, { data: { addProgram } }) {
-          try {
-              const { programs } = cache.readQuery({ query: QUERY_PROGRAMS});
-              cache.writeQuery({
-                  query: QUERY_PROGRAMS,
-                  data: { savedPrograms: [addProgram, ...programs]}
-              });
-            } catch (error) {
-                console.error(error);
-            } 
-        },
-    })
+        try {
+         const { savedPrograms } = cache.readQuery({ query: QUERY_PROGRAMS });
 
-  const handleSubmit = async (e) => {
-      e.preventDefault();
+         cache.writeQuery({ 
+          query: QUERY_PROGRAMS,
+          data: { savedPrograms: [...savedPrograms,addProgram] }
+          });
+        } catch (e) {
+          console.error(e);
+        }
+      }  
+  });
+  
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
       try {
-        const { data } = await addProgram({ variables: { title, body } });
-        console.log(data);
-        setTitle('');
-        setBody('');
-      } catch (error) {
-      console.error(error);
+        await addProgram({
+          variables: { ...formState },
+        });
+  
+        setFormState({
+          title: '',
+          body: '',
+        });
+      } catch (err) {
+        console.error(err);
+      }
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    if (name === 'title') {
+      setFormState({ ...formState, [name]: value });
+    } else if (name !== 'title') {
+      setFormState({ ...formState, [name]: value });
     }
   };
 
@@ -42,18 +59,25 @@ const ProgramForm = () => {
       <form onSubmit={handleSubmit}>
         <label>Add Your Programming</label>
         <input type='text' 
-          required 
-          value={title} 
-          onChange={(e) => setTitle(e.target.value)} 
+          required
+          name='title' 
+          value={formState.title} 
+          onChange={handleChange} 
         />
         <textarea required
-        value={body}
-        onChange={(e) => setBody(e.target.value)}
+        name='body'
+        value={formState.body}
+        onChange={handleChange}
         />
         <div>
-          <button>SAVE</button>
+          <button type='submit'>SAVE</button>
         </div>
       </form>
+      {error && (
+          <div>
+            Something went wrong...
+          </div>
+        )}
     </div>
   );
 };

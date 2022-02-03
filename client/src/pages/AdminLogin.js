@@ -3,7 +3,7 @@ import '../styles/Login.css';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_ADMIN } from '../utils/mutations';
-import homeImage from '../images/home.jpg'
+import adminImage from '../images/admin.jpg'
 
 
 import Auth from '../utils/auth';
@@ -79,7 +79,7 @@ const AdminLogin = (props) => {
               </h3>
             )}
       </div>
-        <img className='homeImage' src={homeImage} alt='homepageImage'/>
+        <img className='homeImage' src={adminImage} alt='homepageImage'/>
     </>
     );
 };
