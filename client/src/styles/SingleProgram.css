@@ -11,3 +11,6 @@
     padding: 10px;
     border-bottom: solid 3px turquoise;
 }
+ .singleProgramDiv p {
+     margin-bottom: 0;
+ }

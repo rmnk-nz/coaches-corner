@@ -25,6 +25,7 @@ a {
     font-size: 2rem;
     font-weight: bolder;
     text-shadow: 2px 2px #33393f;
+    height: 43px;
 }
 .navHme {
     font-family: 'Gruppo', cursive;
@@ -36,5 +37,5 @@ a {
 }
 .navTabs:hover {
     text-shadow: none;
-    text-decoration-line: underline;
+    border-bottom: solid 3px turquoise;
 }
