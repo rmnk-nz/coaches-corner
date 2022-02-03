@@ -14,14 +14,14 @@ const SingleProgram = () => {
     });
 
     const program = data?.savedProgram || {};
-    
+
     if (loading) {
         return <div>...loading</div>
     }
     return (
         <div className='singleProgramDiv'>
             <h3>{program.title}</h3>
-            <p>{program.body}</p>
+            {program.body.split("\n").map((str, i) => <p key= {i}>{str}</p>)}
         </div>
     )
 }
