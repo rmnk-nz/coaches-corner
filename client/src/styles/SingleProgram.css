@@ -1,16 +1,29 @@
 .singleProgramDiv {
-    margin: 50px;
+    margin: 0px 50px 50px 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
 .singleProgramDiv h3 {
     font-family: 'Gruppo', cursive;
     font-size: 2rem;
     padding: 10px;
     border-bottom: solid 3px turquoise;
 }
- .singleProgramDiv p {
+.singleProgramDiv p {
      margin-bottom: 0;
- }
+}
+.goBack {
+    margin: 50px 50px 20px 50px;
+    padding: 5px 15px 5px 15px;
+    font-size: 1.2rem;
+    font-family: 'Gruppo', cursive;
+    border-radius: 5px;
+    font-weight: bolder;
+    background-color:#33393f;
+    color: whitesmoke;
+}
+.goBack:hover {
+    color: turquoise;
+    cursor: pointer;
+}

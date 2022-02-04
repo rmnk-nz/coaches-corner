@@ -31,9 +31,10 @@
     font-family: 'Gruppo', cursive;
     border-radius: 5px;
     font-weight: bolder;
+    background-color:#33393f;
+    color: whitesmoke;
 }
 .programForm button:hover {
-    background-color:#33393f;
     color: turquoise;
     cursor: pointer;
 }
