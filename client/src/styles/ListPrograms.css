@@ -5,7 +5,10 @@
     margin: 0px 20px 50px 20px;
 }
 .programCard {
-    padding: 0px 30px 0px 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 30px 10px 30px;
     margin: 20px;
     width: 80%;
     border-radius: 20px;
@@ -26,4 +29,44 @@
 
 .programCard h3:hover {
     color: turquoise;
+}
+
+.programCard button {
+    margin: 5px;
+    height: 20px;
+    color: whitesmoke;
+    background-color: #33393f;
+}
+
+.programCard button:hover {
+    color: turquoise;
+    cursor: pointer;
+}
+
+.userProgramCard {
+    text-align: center;
+    padding: 10px 30px 10px 30px;
+    margin: 20px;
+    width: 80%;
+    border-radius: 20px;
+    border-style: outset;
+    border-image: initial;
+    background-color: #33393f;
+    border-color:turquoise;
+}
+
+.userProgramCard h3 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-family: 'Gruppo', cursive;
+    font-size: 2rem;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.userProgramCard h3:hover {
+    color: turquoise;
+}
+.userProgramCard:hover {
+    border-style: inset;
 }

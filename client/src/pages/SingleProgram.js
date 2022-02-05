@@ -7,7 +7,6 @@ import { useQuery } from '@apollo/client';
 import { QUERY_PROGRAM } from '../utils/queries';
 
 const SingleProgram = () => {
-    // const location = useLocation();
     const history = useHistory();
 
     const { programId } = useParams();

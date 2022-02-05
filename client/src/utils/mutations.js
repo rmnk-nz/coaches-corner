@@ -35,8 +35,8 @@ mutation addProgram($title: String!, $body: String!) {
 `;
 
 export const REMOVE_PROGRAM = gql`
-mutation removeProgram($title: String!, $body: String!) {
-    removeProgram(title: $title, body: $body) {
+mutation removeProgram($title: String!) {
+    removeProgram(title: $title) {
         _id
         title
         body
