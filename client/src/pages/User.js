@@ -1,5 +1,5 @@
 import React from 'react';
-import ListPrograms from '../components/ListPorgams';
+import UserList from '../components/UserList';
 
 import { useQuery } from '@apollo/client';
 import { QUERY_PROGRAMS } from '../utils/queries';
@@ -13,7 +13,7 @@ function User() {
       {loading ? 
         (<div>....Loading</div>)
       :
-        (<ListPrograms programs={programData} />)
+        (<UserList programs={programData} />)
       }
   </div>;
 };
