@@ -1,16 +1,18 @@
 import React from 'react';
 
 import {  useHistory } from 'react-router-dom';
-// import { useQuery } from '@apollo/client';
-// import { QUERY_USER } from '../utils/queries';
+import { useQuery } from '@apollo/client';
+import { QUERY_USER } from '../utils/queries';
 
 import AddUserForm from '../components/AddUserForm';
+import ListUsers from '../components/ListUsers';
 
 
 function AdminUser() {
-    const history = useHistory();
-//   const { loading, data } = useQuery(QUERY_USER);
-//   const programData = data?.savedPrograms || [];
+  const history = useHistory();
+  
+  const { loading, data } = useQuery(QUERY_USER);
+  const usersData = data?.users || [];
 
   return <>
     <div className='adminHeader'>
@@ -23,13 +25,13 @@ function AdminUser() {
     </div>
     <AddUserForm />
     <h3 className='adminHead'>Active Members:</h3>
-    {/* {loading ? 
+    {loading ? 
         (<div>....Loading</div>)
         :
-        (<ListPrograms
-         programs={programData}
+        (<ListUsers
+         users={usersData}
         />)
-    } */}
+    }
   </>;
 };
 
