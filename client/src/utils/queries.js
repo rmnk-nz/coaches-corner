@@ -15,16 +15,11 @@ export const QUERY_ME = gql`
 `;
 
 export const QUERY_USER = gql`
-  query user($email: String!) {
-        user(email: $email) {
+  query users($email: String!) {
+      users(email: $email) {
         _id
         email
-        savedPrograms {
-            _id
-            title
-            body
-        }
-    }
+      }
 }
 `;
 

@@ -20,7 +20,6 @@ const UserLogin = (props) => {
         });
     };
 
-     
     const handleFormSubmit = async (event) => {
         event.preventDefault();
         console.log(formState);

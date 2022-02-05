@@ -8,8 +8,8 @@ const resolvers = {
             return Admin.find({}).populate('savedPrograms');
         },
 
-        user: () => {
-            return User.find({}).populate('savedPrograms');
+        users: () => {
+            return User.find({});
         },
 
         savedProgram: (root, { programId }) => {
@@ -52,7 +52,14 @@ const resolvers = {
       
           const token = signToken(user);
           return { token, user };
-        },  
+        }, 
+        
+        addUser: async (root, { email, password }) => {
+          const user = await User.create({ email, password });
+          const token = signToken(user);
+        
+          return { token, user };
+        },
 
         addProgram: (root, { title, body }) => {
           return Program.create({ title: title, body: body });

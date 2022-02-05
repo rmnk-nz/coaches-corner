@@ -26,7 +26,7 @@ type Auth {
 }
 type Query {
     me: [Admin]
-    user: [User]
+    users: [User]
     savedPrograms: [Program]
     savedProgram(programId: ID!): Program
 }
@@ -34,6 +34,7 @@ type Query {
 type Mutation {
     loginAdmin(email: String!, password: String!): Auth
     loginUser(email: String!, password: String!): Auth
+    addUser(email: String!, password: String!): Auth
     addProgram(title: String!, body: String!): Program
     removeProgram(title: String!): Program
 }

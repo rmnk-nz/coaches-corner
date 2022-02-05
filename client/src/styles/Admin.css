@@ -1,5 +1,22 @@
+.adminHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .adminHead {
     margin: 50px;
     font-family: 'Gruppo', cursive;
     font-size: 1.5rem;
+}
+.hubLink {
+    margin: 50px;
+    padding: 5px;
+    font-family: 'Audiowide', cursive;
+    font-size: 2rem;
+    font-weight: bolder;
+    width: max-content;
+}
+.hubLink:hover {
+    border-bottom: solid 3px turquoise;
 }
