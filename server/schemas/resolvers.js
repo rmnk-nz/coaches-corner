@@ -68,7 +68,10 @@ const resolvers = {
         removeProgram: (root, { title }) => {
           return Program.findOneAndDelete({ title: title });
         },
-    },
+
+        removeUser: (root, { userId }) => {
+          return User.findOneAndDelete({ _id: userId });        }
+        },
 };
 
 module.exports = resolvers;

@@ -55,3 +55,11 @@ mutation removeProgram($title: String!) {
     }
 }
 `;
+
+export const REMOVE_USER = gql`
+mutation removeUser($userId: ID) {
+    removeUser(userId: $userId) {
+        _id
+        email
+    }
+}`

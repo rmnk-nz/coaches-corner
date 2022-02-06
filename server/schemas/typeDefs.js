@@ -35,6 +35,7 @@ type Mutation {
     loginAdmin(email: String!, password: String!): Auth
     loginUser(email: String!, password: String!): Auth
     addUser(email: String!, password: String!): Auth
+    removeUser(userId: ID!): User
     addProgram(title: String!, body: String!): Program
     removeProgram(title: String!): Program
 }
